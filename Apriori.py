@@ -14,8 +14,7 @@ def fun_support():
 
 def func_confidence(elements):
     print('\n\n\n----confidence-----\n')
-    confidance=[]
-    elcpy=elements.copy()
+    elcpy, confidance = elements.copy(), []
     while len(elcpy)>0:
         for j in [item for item in elcpy if item not in elcpy[0]]:
             count=0;sup='❌'
@@ -32,8 +31,7 @@ def func_confidence(elements):
 
 def func_confidence_c3(confidance):
     print('\n----c3----\n')
-    poss_combination=[]
-    retuening_elements=[]
+    poss_combination, retuening_elements = [], []
     for q in confidance:
         for w in [item for item in confidance if item != q]:
             for e in [item for item in confidance if (q != w) and (w !=item) and (q != item) ]:
