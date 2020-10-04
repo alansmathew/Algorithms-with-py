@@ -83,8 +83,8 @@ for x in necc_1sequence:
                             if (z[0] in v) and (z[1] in v ) and (v.index(x) < v.index(z[0]) < v.index(z[1])): count4+=1
                             for b in c:
                                 if (c.index(v)<c.index(b)) and (z[0] in b) and (z[1] in b) and (b.index(z[0])<b.index(z[1])): count3+=1
-                print('<{%d}{%d,%d}>\t%d\t%d\t%d\t%s'%(x,z[0],z[1],count3,len(ls),int(count3/len(ls)*100),(int(count3/len(ls)*100)>=support) and '✅' or '❌' ))
-                print('<{%d,%d,%d}>\t%d\t%d\t%d\t%s'%(x,z[0],z[1],count4,len(ls),int(count4/len(ls)*100),(int(count4/len(ls)*100)>=support) and '✅' or '❌' ))
+                # print('<{%d}{%d,%d}>\t%d\t%d\t%d\t%s'%(x,z[0],z[1],count3,len(ls),int(count3/len(ls)*100),(int(count3/len(ls)*100)>=support) and '✅' or '❌' ))
+                # print('<{%d,%d,%d}>\t%d\t%d\t%d\t%s'%(x,z[0],z[1],count4,len(ls),int(count4/len(ls)*100),(int(count4/len(ls)*100)>=support) and '✅' or '❌' ))
                 if (count3/len(ls))*100 >= support:
                     item='<{%d}{%d,%d}>'%(x,z[0],z[1])
                     ans3.append(item)
