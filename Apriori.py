@@ -79,12 +79,12 @@ def func_confidence_c3(confidance):
 #         el.append(input("Enter element : "))
 #     ls.append(el)
 # print(ls)
-ls=[['I1', 'I2', 'I5'], ['I2', 'I4'], ['I2', 'I3'], ['I1', 'I2', 'I4'], ['I1', 'I3'], ['I2', 'I3'], ['I1', 'I3'], ['I1', 'I2', 'I3', 'I5'], ['I1', 'I2', 'I3']]
-# ls=[['beef', 'chicken', 'milk'], ['beef', 'cheese'], ['cheese', 'boots'], ['beef', 'chicken', 'cheese'], ['beef', 'chicken', 'clothes', 'cheese', 'milk'], ['chicken', 'clothes', 'milk'], ['chicken', 'milk', 'clothes']]
+# ls=[['I1', 'I2', 'I5'], ['I2', 'I4'], ['I2', 'I3'], ['I1', 'I2', 'I4'], ['I1', 'I3'], ['I2', 'I3'], ['I1', 'I3'], ['I1', 'I2', 'I3', 'I5'], ['I1', 'I2', 'I3']]
+ls=[['beef', 'chicken', 'milk'], ['beef', 'cheese'], ['beef', 'chicken', 'cheese'], ['beef', 'chicken', 'clothes', 'cheese','milk'], ['chicken', 'clothes', 'milk'], ['chicken', 'milk', 'clothes']]
 # minsup = int(input("minsup = "))
 # minconf = int(input("minconf = "))
-minsup = 22
-minconf = 70
+minsup = 40
+minconf = 80
 elements =[]
 for x in ls:
     for j in x:
