@@ -1,6 +1,6 @@
 # ls=[[[30],[90]],[[10,20],[30],[10,40,60,70]],[[30,50,70,80]],[[30],[30,40,70,80],[90]],[[90]]]
 elements=[]
-ls=[[["a"],["abc"],["ac"],["d"],["cf"]],[["ad"],["c"],["bc"],["ae"]],[["ef"],["ab"],["df"],["cb"]],[["eg"],["af"],["cbc"]]]
+ls=[[["a"],["a","b","c"],["a","c"],["d"],["c","f"]],[["a","d"],["c"],["b","c"],["a","e"]],[["e","f"],["a","b"],["d","f"],["c"],["d"]],[["e"],["g"],["a","f"],["c"],["b"],["c"]]]
 # ls=[ [[1,2,4],[2,3],[5]] , [[1,2],[2,3,4]] , [[1,2],[2,3,4],[2,4,5]], [[2],[3,4],[4,5]] , [[1,3],[2,4,5]] ]
 support=2
 for x in ls:
@@ -18,7 +18,7 @@ for a in elements.copy():
             if a in y:
                 count += 1
                 break
-    print('<{%d}>\t %d\t %d\t %d\t %s'%(a,count,len(ls),int((count/len(ls))*100),(int(count/len(ls)*100)>=support) and '✅' or '❌'))
+    print('<{%s}>\t %d\t %d\t %d\t %s'%(a,count,len(ls),int((count/len(ls))*100),(int(count/len(ls)*100)>=support) and '✅' or '❌'))
     if (count/len(ls))*100 <= support:
         elements.pop(elements.index(a))
 
@@ -39,12 +39,11 @@ for x in elements:
                 if x in b:
                     for c in a: 
                         if a.index(b) < a.index(c) and y in c:count+=1
-        print('<{%d},{%d}>\t%d\t%d\t%d\t%s'%(x,y,count,len(ls),int(count/len(ls)*100),(int(count/len(ls)*100)>=support) and '✅' or '❌'))
+        print('<{%s},{%s}>\t%d\t%d\t%d\t%s'%(x,y,count,len(ls),int(count/len(ls)*100),(int(count/len(ls)*100)>=support) and '✅' or '❌'))
         if (count/len(ls))*100 >= support:
             # print('<{%d},{%d}>'%(x,y))
-            item='<{%d},{%d}>'%(x,y)
+            item='<{%s},{%s}>'%(x,y)
             ans.append(item)
-
             temp_necc_1sequence.append([x,y])
             if x not in necc_1sequence: necc_1sequence.append(x)
             if y not in necc_1sequence: necc_1sequence.append(y)
@@ -54,9 +53,9 @@ for x in elements:
             for b in a:
                 if (x in b) and (y in b) and (b.index(x)<b.index(y)):
                     count2+=1
-        print('<{%d,%d}>\t%d\t%d\t%d\t%s'%(x,y,count2,len(ls),int(count2/len(ls)*100),(int(count2/len(ls)*100)>=support) and '✅' or '❌'))
+        print('<{%s,%s}>\t%d\t%d\t%d\t%s'%(x,y,count2,len(ls),int(count2/len(ls)*100),(int(count2/len(ls)*100)>=support) and '✅' or '❌'))
         if (count2/len(ls))*100 >= support:
-            item='<{%d %d}>'%(x,y)
+            item='<{%s %s}>'%(x,y)
             ans.append(item)
             # print( '<{%d %d}>'%(x,y) )
             necc_2sequence.append([x,y])
@@ -84,8 +83,8 @@ for x in necc_1sequence:
                             if (z[0] in v) and (z[1] in v ) and (v.index(x) < v.index(z[0]) < v.index(z[1])): count4+=1
                             for b in c:
                                 if (c.index(v)<c.index(b)) and (z[0] in b) and (z[1] in b) and (b.index(z[0])<b.index(z[1])): count3+=1
-                # print('<{%d}{%d,%d}>\t%d\t%d\t%d\t%s'%(x,z[0],z[1],count3,len(ls),int(count3/len(ls)*100),(int(count3/len(ls)*100)>=support) and '✅' or '❌' ))
-                # print('<{%d,%d,%d}>\t%d\t%d\t%d\t%s'%(x,z[0],z[1],count4,len(ls),int(count4/len(ls)*100),(int(count4/len(ls)*100)>=support) and '✅' or '❌' ))
+                print('<{%d}{%d,%d}>\t%d\t%d\t%d\t%s'%(x,z[0],z[1],count3,len(ls),int(count3/len(ls)*100),(int(count3/len(ls)*100)>=support) and '✅' or '❌' ))
+                print('<{%d,%d,%d}>\t%d\t%d\t%d\t%s'%(x,z[0],z[1],count4,len(ls),int(count4/len(ls)*100),(int(count4/len(ls)*100)>=support) and '✅' or '❌' ))
                 if (count3/len(ls))*100 >= support:
                     item='<{%d}{%d,%d}>'%(x,z[0],z[1])
                     ans3.append(item)
